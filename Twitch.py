@@ -23,7 +23,7 @@ def Main():
     global Categories
     os.system("cls")
 
-    Mode = input(f'[1] Streamer [2] Category\n\nSelect Mode:')
+    Mode = input(f'[1] Streamer [2] Category\n\nSelect Mode: ')
 
     if Mode == "1":
 
