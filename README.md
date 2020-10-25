@@ -5,6 +5,8 @@ A Python script which downloads Twitch Clips
  ```bash 
  pip install requests
 ```
+Twitch API Client ID: https://dev.twitch.tv/console/apps/create<br/>
+
 
 ### ● How it works
 
