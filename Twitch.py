@@ -1,17 +1,12 @@
 import requests, os, time, sys
 
+for Folder in ["./Downloads", "./Downloads/Streamers", "./Downloads/Categories"]:
+    if not os.path.exists(Folder):
+        os.mkdir(Folder)
+
 if not os.path.exists("client_id.txt"):
     ClientID = input("Enter Client ID (For Twitch API): ")
     ClientID_file = open("client_id.txt", "w+").write(ClientID)
-
-if not os.path.exists("./Downloads"):
-    os.mkdir("./Downloads")
-
-if not os.path.exists("./Downloads/Streamers"):
-    os.mkdir("./Downloads/Streamers")
-
-if not os.path.exists("./Downloads/Categories"):
-    os.mkdir("./Downloads/Categories")
 
 if not os.path.exists("Streamers.txt"):
     Streamers = open("Streamers.txt", "w+").write("Lilypichu\nPokimane\nScarra\nSykkuno")
@@ -41,21 +36,12 @@ def Main():
 
         try:
             Clip_count = int(input(f"Loaded {len(Streamers)} Streamers\n\nHow many clips you want to download per Streamer?: "))
-            os.system("cls")
-            Period = int(input(f"[1] Day [2] Week [3] Month [4] All\n\nEnter Clip Period: "))
-
-            if Period == 1: Period = "day"
-            elif Period == 2: Period = "week"
-            elif Period == 3: Period = "month"
-            elif Period == 4: Period = "all"    
 
         except ValueError:
             print("Only Numbers!")
             Streamers = []
             time.sleep(2)
             Main()
-
-        Download(Clip_count, Mode, Period)
 
     elif Mode == "2":
         
@@ -68,26 +54,32 @@ def Main():
         
         try:
             Clip_count = int(input(f"Loaded {len(Categories)} Categories\n\nHow many clips you want to download per Category?: "))
-            os.system("cls")
-            Period = int(input(f"[1] Day [2] Week [3] Month [4] All\n\nEnter Clip Period: "))
-
-            if Period == 1: Period = "day"
-            elif Period == 2: Period = "week"
-            elif Period == 3: Period = "month"
-            elif Period == 4: Period = "all"
-        
         except ValueError:
             print("Only Numbers!")
             Streamers = []
             time.sleep(2)
             Main()
-        
-        Download(Clip_count, Mode, Period)
 
     else:
         print("Wrong Input")
         time.sleep(2)
         Main()
+
+    try:
+        os.system("cls")
+        Period = int(input(f"[1] Day [2] Week [3] Month [4] All\n\nEnter Clip Period: "))
+    except ValueError:
+        print("Only Numbers!")
+        Streamers = []
+        time.sleep(2)
+        Main()
+
+    if Period == 1: Period = "day"
+    elif Period == 2: Period = "week"
+    elif Period == 3: Period = "month"
+    elif Period == 4: Period = "all"
+
+    Download(Clip_count, Mode, Period)
 
 def Download(Clip_count, Mode, Period):
 
@@ -144,7 +136,7 @@ def Download(Clip_count, Mode, Period):
     input("Done! Press any key to download more clips...")
     
     Streamers = []
-    Categoies = []
+    Categories = []
     Clips = []
     
     Main()
