@@ -1,11 +1,16 @@
 ## Twitch Clip Downloader
 A Python script which downloads Twitch Clips
 
+### ● Usage
+
+![](https://i.imgur.com/7QZwKkv.gif)<br/><br/>
+
+
 ### ● Requirements
  ```bash 
  pip install requests
 ```
-Twitch API Client ID: https://dev.twitch.tv/console/apps/create<br/>
+Twitch API Client ID: https://dev.twitch.tv/console/apps/create<br/><br/>
 
 
 ### ● How it works
