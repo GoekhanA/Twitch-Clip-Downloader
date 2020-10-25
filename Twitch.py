@@ -144,7 +144,7 @@ def Download(Clip_count, Mode, Period):
     input("Done! Press any key to download more clips...")
     
     Streamers = []
-    Category = []
+    Categoies = []
     Clips = []
     
     Main()
